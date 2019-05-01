@@ -274,7 +274,7 @@ public class LDASentimentFeatureExtraction {
 		 * 100 iterations for the above 3 datasets
 		 */
 
-		LDA lda = new LDA().setSeed(80).setMaxIter(100).setK(20).setOptimizer("em");
+		LDA lda = new LDA().setSeed(80).setMaxIter(100).setK(20).setOptimizer("em").setDocConcentration(3.5).setTopicConcentration(1.5);
 
 		DistributedLDAModel nounmodel = (DistributedLDAModel) lda.fit(nounvector);
 		Dataset<Row> nountransformed = nounmodel.transform(nounvector);
